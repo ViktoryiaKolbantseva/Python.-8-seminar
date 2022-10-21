@@ -1,0 +1,14 @@
+def add_name_surname():
+    name = input("Введите имя: ")
+    surname = input("Введите фамилию: ")
+    
+    json_data = {
+        "Name": name,
+        "Surname": surname,
+       
+    }
+    data = json.load(open("db.json"))
+    data.append(json_data)
+    with open("db.json", " ") as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
+    print('\nНовый контакт успешно добавлен!\n')
